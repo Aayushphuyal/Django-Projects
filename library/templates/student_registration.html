@@ -1,0 +1,112 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Student Registration {% endblock %}
+{% block css %}
+<style>
+  .form-container {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .form-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .form-label {
+    font-weight: bold;
+  }
+  .form-control {
+    border-radius: 4px;
+  }
+  .btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  .btn-custom:hover {
+    background-color: #0056b3;
+  }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+  <div class="form-container mx-auto">
+    <h1 class="form-heading text-center">Student Registration</h1>
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+      <div class="row">
+        <div class="form-group col-md-12 mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" name="first_name" placeholder="Enter First Name" required>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" placeholder="Enter Email" required>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Mobile Number</label>
+          <input type="text" class="form-control" name="phone" placeholder="Enter Mobile Number" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Department</label>
+          <input type="text" class="form-control" name="branch" placeholder="Enter Department Name" required>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Class Name</label>
+          <input type="text" class="form-control" name="classroom" placeholder="Enter Class Name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Roll Number</label>
+          <input type="text" class="form-control" name="roll_no" placeholder="Enter Roll Number" required>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Student Image</label>
+          <input type="file" class="form-control" name="image" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-custom btn-lg btn-block">Register As Student</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Registration Successful.");
+    document.location = "/student_login";
+    {% endif %}
+</script>
+{% endblock %}

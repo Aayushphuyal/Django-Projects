@@ -1,0 +1,63 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Library Management System {% endblock %}
+{% block css %}
+<style>
+  .hero-section {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+  }
+  .hero-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  .hero-text {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: auto;
+  }
+  .feature-box {
+    text-align: center;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .feature-box:hover {
+    transform: scale(1.05);
+  }
+  .feature-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+</style>
+{% endblock %}
+{% block body %}
+<div class="hero-section text-center">
+  <div class="container">
+    <h1 class="hero-heading">Welcome to My Library Management System</h1>
+    <p class="hero-text mb-4">Register as a student to access and manage your books efficiently.</p>
+    <a href="/student_registration/" class="btn btn-primary btn-lg">Register as Student</a>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row text-center">
+    <div class="col-md-6 mb-4">
+      <div class="feature-box bg-light">
+        <h3 class="mb-3">Admin Login</h3>
+        <p class="mb-4">Manage the library and oversee book transactions.</p>
+        <a href="/admin_login/" class="btn btn-outline-primary btn-lg">Admin Login</a>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="feature-box bg-light">
+        <h3 class="mb-3">Student Login</h3>
+        <p class="mb-4">Access your student account and manage your book rentals.</p>
+        <a href="/student_login/" class="btn btn-outline-primary btn-lg">Student Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

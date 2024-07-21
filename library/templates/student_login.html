@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Student Login {% endblock %}
+{% block css %}
+<style>
+  .login-container {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .login-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .form-label {
+    font-weight: bold;
+  }
+  .form-control {
+    border-radius: 4px;
+  }
+  .btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  .btn-custom:hover {
+    background-color: #0056b3;
+  }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+  <div class="login-container mx-auto">
+    <h1 class="login-heading text-center">Student Login</h1>
+    <form method="POST"> {% csrf_token %}
+      <div class="row">
+        <div class="form-group col-md-12 mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-12 mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-custom btn-lg btn-block">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Invalid Username or Password.");
+    document.location = "/student_login";
+    {% endif %}
+</script>
+{% endblock %}
